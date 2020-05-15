@@ -5,3 +5,24 @@ chmod -R 777 storage
 cp .env.example .env
 1.3.秘钥
 php artisan key:generate
+
+1.4.Nginx配置
+server {
+    listen       80;
+    server_name  dev.laravel.com;
+
+    location / {
+    	root   /Users/yintianxiong/PhpstormProjects/htdocs/laravel/public;
+    	index  index.php index.html;
+        #将所有的路由都引入public/index.php前端控制器
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+    	root           /Users/yintianxiong/PhpstormProjects/htdocs/laravel/public;
+    	fastcgi_pass   127.0.0.1:9999;
+    	fastcgi_index  index.php;
+    	fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    	include        fastcgi.conf;
+    }
+}
