@@ -1,0 +1,7 @@
+1.安装
+1.1.storage赋予权限
+chmod -R 777 storage
+1.2.复制.env文件
+cp .env.example .env
+1.3.秘钥
+php artisan key:generate
