@@ -16,8 +16,10 @@ class ProductController extends Controller
 
     public function add(Request $request) {
         $name = $request->input('name');
+        $data = $request->post();
+        $value = serialize($data);
         var_dump($name);
-        Redis::set('name', $name);
-        return Redis::get('name');
+        Redis::set('user:1', $value);
+        return Redis::get('user:1');
     }
 }
