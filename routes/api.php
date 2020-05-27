@@ -21,3 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/products/{id}', 'ProductController@show');
 
 Route::post('/products/add', 'ProductController@add');
+
+Route::post('/article/add', 'ArticleController@add');
+Route::post('/article/vote', 'ArticleController@vote');
+Route::post('/article/getArticle', 'ArticleController@getArticle');
