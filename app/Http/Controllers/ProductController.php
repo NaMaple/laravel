@@ -19,7 +19,7 @@ class ProductController extends Controller
         $data = $request->post();
         $value = serialize($data);
         var_dump($name);
-        Redis::set('user:1', $value);
-        return Redis::get('user:1');
+        Redis::set('::user::1', $value);
+        return Redis::get('::user::1');
     }
 }
