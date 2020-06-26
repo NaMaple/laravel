@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('/user', 'UserController@index');
 Route::post('/user/add', 'UserController@add');
 
+Route::post('/redis', 'RedisLockController@index');
+
 Route::get('/test', function () {
     echo 'test';
 });
